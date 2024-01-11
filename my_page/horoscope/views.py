@@ -40,6 +40,8 @@ dates = {
     (337, 366): 'pisces'
 }
 
+def get_list(request, lst):
+    return HttpResponse(f'list ---> {lst}')
 
 def get_date(request, date):
     return HttpResponse(f'Дата ---> {date}')
