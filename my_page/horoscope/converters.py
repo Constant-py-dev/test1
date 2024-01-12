@@ -10,12 +10,21 @@ class DateConverter:
     def to_url(self, value):
         return value.strftime('%d-%m-%Y')
 
+
 class SplitConverter:
-    regex = "^(.+,)+.+$"
+    regex = '(\w+,)+\w+'
 
     def to_python(self, value):
         return value.split(',')
 
     def to_url(self, value):
-        a = ','.join(value)
-        return a
+        return ','.join(value)
+
+class UpperConvertor:
+    regex = '[^/]+'
+
+    def to_python(self, value):
+        return value.upper()
+
+    def to_url(self, value):
+        return value.lower()

@@ -1,7 +1,10 @@
+import datetime
+
 from django.shortcuts import render
 from datetime import date
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, converters
+from .converters import SplitConverter
 
 zodiac_dict = {
     'aries': 'Овен - первый знак зодиака, планета Марс (с 21 марта по 20 апреля).',
@@ -39,12 +42,6 @@ dates = {
     (307, 337): 'aquarius',
     (337, 366): 'pisces'
 }
-
-def get_list(request, lst):
-    return HttpResponse(f'list ---> {lst}')
-
-def get_date(request, date):
-    return HttpResponse(f'Дата ---> {date}')
 
 
 def menu_handler(lst, viewname):
